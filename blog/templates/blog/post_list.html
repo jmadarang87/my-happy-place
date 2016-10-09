@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title> Jahnel's Adventure Blog </title>
+  </head>
+  <body>
+    <div>
+
+      <h1> Jahnel's Adventure Blog </h1>
+      <h3> This is my adventure blog of places I've been,
+        things I've done and people I've met.</h3>
+      <p> Thanks for stopping by!<p>
+
+    </div>
+
+      {% for post in posts %}
+          <div>
+            <p>published: {{ post.published_date }}</p>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+          </div>
+
+      {% endfor %}
+
+</html>
