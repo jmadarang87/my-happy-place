@@ -1,24 +1,14 @@
-<html>
-  <head>
-    <title> Jahnel's Adventure Blog </title>
-  </head>
-  <body>
-    <div>
+{% extends 'blog/base.html' %}
 
-      <h1> Jahnel's Adventure Blog </h1>
-      <h3> This is my adventure blog of places I've been,
-        things I've done and people I've met.</h3>
-      <p> Thanks for stopping by!<p>
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
 
-    </div>
-
-      {% for post in posts %}
-          <div>
+<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+          <div class="date">
             <p>published: {{ post.published_date }}</p>
-            <h1><a href="">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
           </div>
-
-      {% endfor %}
-
-</html>
+    </div>
+  {% endfor %}
+{% endblock %}
