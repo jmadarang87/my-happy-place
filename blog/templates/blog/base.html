@@ -9,6 +9,9 @@
     </head>
     <body>
     <div class="page-header">
+      {% if user.is_authenticated %}
+      <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+      {% endif %}
         <h1><a href="/">Jahnel's Adventure Blog</a></h1>
         <h4>places i've been, things i've done and people i've met.</h4>
     </div>
